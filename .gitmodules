@@ -1,0 +1,3 @@
+[submodule "i3ipc-python"]
+	path = i3ipc-python
+	url = git@github.com:acrisci/i3ipc-python.git
