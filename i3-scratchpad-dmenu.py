@@ -2,6 +2,7 @@
 
 import i3ipc
 import subprocess
+import re
 
 i3 = i3ipc.Connection()
 
@@ -19,7 +20,7 @@ def main():
     scratchpad_windows = get_scratchpad_windows()
     window_titles = [w.name for w in scratchpad_windows]
     if window_titles:
-        window_to_restore = dmenu_choose(window_titles).strip()
+        window_to_restore = re.escape(dmenu_choose(window_titles).strip())
         i3.command('[title="{}"] scratchpad show'.format(window_to_restore))
 
 if __name__ == '__main__':
