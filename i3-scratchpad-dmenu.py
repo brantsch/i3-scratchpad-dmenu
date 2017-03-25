@@ -12,7 +12,7 @@ def get_scratchpad_windows():
 
 def dmenu_choose(options):
     """ Show a dmenu to choose a string item from a list of *options*. """
-    dmenu_process = subprocess.Popen(["dmenu"], stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+    dmenu_process = subprocess.Popen(["dmenu", "-l", "10"], stdin=subprocess.PIPE, stdout=subprocess.PIPE)
     stdoutdata, _ = dmenu_process.communicate("\n".join(options).encode())
     return stdoutdata.decode('utf-8')
 
