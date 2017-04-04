@@ -8,7 +8,7 @@ i3 = i3ipc.Connection()
 
 def get_scratchpad_windows():
     scratchpad_containers = i3.get_tree().scratchpad().descendents()
-    return filter(lambda c: c.type == 'con', scratchpad_containers)
+    return filter(lambda c: c.type == 'con' and c.name, scratchpad_containers)
 
 def dmenu_choose(options):
     """ Show a dmenu to choose a string item from a list of *options*. """
